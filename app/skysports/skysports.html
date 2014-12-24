@@ -1,0 +1,84 @@
+<div id="skySports" ng-init="getDates()">
+	<div class="dates">
+		<span class="date" ng-repeat="date in dates" ng-click="setDate(date)" ng-class="isSelectedDate(date)">
+			<div class="day">{{date.date | date: 'EEE'}}</div>
+			<div class="day">{{date.date | date: 'dd'}}</div>
+			<div class="month">{{date.date | date: 'MMM'}}</div>
+		</span>
+	</div>
+	<div>
+		<div class="competitions" ng-hide="date.competitions === undefined"> 
+			<div class="competition" ng-repeat="competition in date.competitions" ng-click="setFixtures(competition.name.full, competition.rounds[0].fixtures);" ng-class="isSelectedCompetition(competition.name.full)">
+				{{competition.name.full}}
+			</div>
+		</div>
+		<div class="fixtures" ng-hide="fixtures.length === 0">
+			<div class="fixture" ng-repeat="fixture in fixtures" ng-class="isSelectedFixture(fixture.item.id)">
+				<span class="team homeTeam">
+					<div style="padding-right: 5px;">{{fixture.item.teams.home.name.full}}</div>
+				</span>
+				<span class="scoreline" ng-switch="fixture.item.status">
+      				<span ng-switch-when="0">
+      					<span>{{fixture.item.start.timestamp | date: 'HH:mm'}}</span>
+      				</span>
+      				<span ng-switch-default>
+      					<span style="cursor: pointer;" ng-click="setFixture(fixture.item.id)">{{fixture.item.teams.home.score}}-{{fixture.item.teams.away.score}}</span>
+      				</span>
+			  	</span>
+				<span class="team awayTeam">
+					<div style="padding-left: 5px;">{{fixture.item.teams.away.name.full}}</div>
+				</span>
+			</div>
+		</div>
+		<div class="game" ng-hide="teams == ''">
+			<div class="lineups">
+				<div id="homeTeam" class="lineup">
+					Starting XI
+					<div class="startingXI">
+						<div ng-repeat="startingPlayer in teams.teams.home.players track by startingPlayer.id">
+							<span class="squadNumber">{{startingPlayer.shirt}}</span>
+							<span class="playerName">{{startingPlayer.name.surname}}</span>
+							<span ng-show="startingPlayer.captain === true">(C)</span>
+							<span ng-repeat="event in events[startingPlayer.id]">								
+								<i ng-class="eventClass(event.type)"></i>
+								{{event.time | matchTime}}
+							</span>
+						</div>
+					</div>
+					Substitutes
+					<div class="substitutes">
+						<div ng-repeat="substitute in teams.teams.home.subs track by substitute.id">
+							<span class="squadNumber">{{substitute.shirt}}</span><span class="playerName">{{substitute.name.surname}}</span>
+							<span ng-repeat="event in events[substitute.id]">
+								<i ng-class="eventClass(event.type)"></i>
+								{{event.time | matchTime}}
+							</span>
+						</div>
+					</div>
+				</div>
+				<div id="awayTeam" class="lineup">
+					Starting XI
+					<div class="startingXI">
+						<div ng-repeat="startingPlayer in teams.teams.away.players track by startingPlayer.id">
+							<span class="squadNumber">{{startingPlayer.shirt}}</span><span class="playerName">{{startingPlayer.name.surname}}</span><span ng-show="startingPlayer.captain === true">(C)</span>
+							<span ng-repeat="event in events[startingPlayer.id]">
+								<i ng-class="eventClass(event.type)"></i>
+								{{event.time | matchTime}}
+							</span>
+						</div>
+					</div>
+					Substitutes
+					<div class="substitutes">
+						<div ng-repeat="substitute in teams.teams.away.subs track by substitute.id">
+							<span class="squadNumber">{{substitute.shirt}}</span><span class="playerName">{{substitute.name.surname}}</span>
+							<span ng-repeat="event in events[substitute.id]">
+								<i ng-class="eventClass(event.type)"></i>
+								{{event.time | matchTime}}
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
