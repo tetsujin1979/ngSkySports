@@ -1,9 +1,9 @@
 {
-  "name": "angular-seed",
+  "name": "ngSkySports",
   "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "description": "An AngularJS single page application alternative to the Sky Sports App",
+  "repository": "https://github.com/tetsujin1979/ngSkySports/",
   "license": "MIT",
   "devDependencies": {
     "http-server": "^0.6.1",
