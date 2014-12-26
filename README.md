@@ -3,8 +3,8 @@ ngSkySports
 
 AngularJS Single Page Application that uses the Sky Sports REST services to populate a page with all the available dates, the competitions on those dates, each fixture per competition and the lineups and events for each fixture
 
-Recently, Sky Sports updated their mobile app to use a different source of data to the live score centre - `http://live.skysports.com/ScoreCentre/football.html`
-I ran [the Linux proxy server][squid] - `http://www.squid-cache.org/` - on my Kubuntu laptop, and forced my mobile to use it as a proxy with ProxyDroid 
+Recently, Sky Sports updated their mobile app to use a different source of data to the [live score centre](http://live.skysports.com/ScoreCentre/football.html)
+I ran [squid](http://www.squid-cache.org/ "the Linux proxy server") - on my Kubuntu laptop, and forced my mobile to use it as a proxy with ProxyDroid 
 
 I found the following links were being opened by the app (note that {fixture id} in each link is assumed to be the same value )
 
