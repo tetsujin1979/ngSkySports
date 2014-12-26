@@ -8,10 +8,10 @@ I ran [the Linux proxy server][squid] - `http://www.squid-cache.org/` - on my Ku
 
 I found the following links were being opened by the app (note that {fixture id} in each link is assumed to be the same value )
 
-[*] http://d.365dm.com/api/score-centre/v1/football/schedule - retrieving the list of available dates, with the competitions on each day and the id of each fixture
-[*] http://d.365dm.com/api/score-centre/v1/football/fixture/{fixture id} - information about the fixture - competition, round, status, kick off time, teams, score, scorers, location, attendance, referee, etc
-[*] http://d.365dm.com/api/score-centre/v1/football/fixture/teams/{fixture id} - the lineups for the fixture, and the squad number for each player
-[*] http://d.365dm.com/api/score-centre/v1/football/fixture/teams/events/{fixture id} - each event in the fixture (goal, penalty, OG, assist, booking, red card, shoot out), organised by player id, which matches with the player id in the teams/{fixture id} link
+* http://d.365dm.com/api/score-centre/v1/football/schedule - retrieving the list of available dates, with the competitions on each day and the id of each fixture
+* http://d.365dm.com/api/score-centre/v1/football/fixture/ {fixture id} - information about the fixture - competition, round, status, kick off time, teams, score, scorers, location, attendance, referee, etc
+* http://d.365dm.com/api/score-centre/v1/football/fixture/teams/ {fixture id} - the lineups for the fixture, and the squad number for each player
+* http://d.365dm.com/api/score-centre/v1/football/fixture/teams/events/ {fixture id} - each event in the fixture (goal, penalty, OG, assist, booking, red card, shoot out), organised by player id, which matches with the player id in the teams/{fixture id} link
 
 ### Getting Started
 
