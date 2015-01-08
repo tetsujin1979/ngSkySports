@@ -1,0 +1,216 @@
+/* app css stylesheet */
+
+div.competition {
+  cursor: pointer;
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 5px;
+
+}
+
+span.team, div.competition, div.date, div.startingXI, div.substitutes  {
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(50%,#f1f1f1), color-stop(51%,#e1e1e1), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+
+}
+
+div.date {
+  display: inline-block;
+  width: 90px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  margin: 5px;
+  -moz-box-shadow: 0 0 5px rgba(255,255,255,1.0);
+  -webkit-box-shadow: 0 0 5px rgba(255,255,255,1.0);
+  box-shadow: 0 0 5px rgba(255,255,255,1.0);
+  font-weight: bold;
+}
+
+div.competition.selected, div.date.selected {
+  -moz-box-shadow: 0 0 5px rgba(0,0,255,1.0);
+  -webkit-box-shadow: 0 0 5px rgba(0,0,255,1.0);
+  box-shadow: 0 0 5px rgba(0,0,255,1.0);
+  font-weight: bold;
+}
+
+div.competition.selected:hover, div.date.selected:hover {
+  -moz-box-shadow: 0 0 5px rgba(0,0,255,1.0);
+  -webkit-box-shadow: 0 0 5px rgba(0,0,255,1.0);
+  box-shadow: 0 0 5px rgba(0,0,255,1.0);
+  font-weight: bold;
+}
+  
+div.competition:hover, div.date:hover {
+  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    -webkit-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -ms-transition: all 0.25s linear;
+    -kthtml-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+}
+
+
+span.team {
+  display: inline-block;
+  width: 44%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+
+}
+
+span.scoreline {
+  width: 10%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  display: inline-block;
+  text-align: center;
+  background: #f85032; /* Old browsers */
+  background: -moz-linear-gradient(top,  #f85032 0%, #f16f5c 50%, #f6290c 51%, #f02f17 71%, #e73827 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f85032), color-stop(50%,#f16f5c), color-stop(51%,#f6290c), color-stop(71%,#f02f17), color-stop(100%,#e73827)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827',GradientType=0 ); /* IE6-9 */
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+div.fixture {
+  padding: 5px;
+  width: 100%;
+}
+
+div.dates {
+  padding-top: 5px;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+  height: 70px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+div.fixtures {
+  display: inline-block; 
+  vertical-align: top; 
+  width: 36%; 
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+div.competitions {
+  display: inline-block; 
+  width: 25%; 
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+}
+
+span.homeTeam {
+  border-left: 1px solid #ccc; 
+  text-align: right; 
+  margin-right: -5px;
+}
+
+span.awayTeam {
+   margin-left: -5px; 
+   border-right: 1px solid #ccc;
+}
+
+div.fixture.selectedFixture > span.team {
+  font-weight: bold;
+  border-top: 2px solid blue;
+  border-bottom: 2px solid blue;
+}
+
+div.fixture.selectedFixture > span.scoreline {
+  font-weight: bold;
+  border-top: 2px solid blue;
+  border-bottom: 2px solid blue;
+}
+
+div.fixture.selectedFixture > span.homeTeam {
+  border-left: 2px solid blue;
+}
+
+div.fixture.selectedFixture > span.awayTeam {
+  border-right: 2px solid blue;
+}
+
+div.game {
+  display: inline-block; 
+  vertical-align: top; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  width: 33%
+}
+
+div.lineup {
+  display: inline-block; 
+  vertical-align: top; 
+  width: 49.5%
+}
+
+div.startingXI {
+  border: 2px solid blue;
+  border-radius: 5px;
+  color: black;
+}
+
+div.substitutes {
+  border: 2px solid blue;
+  border-radius: 5px;
+  color: black;
+}
+
+span.squadNumber {
+  display: inline-block;
+  padding-right: 5px;
+  text-align: right;
+  width: 25px;
+}
+
+div.lineups {
+  background: blue;
+  color: white;
+  font-weight: bold;
+  font-size: smaller;
+  padding: 5px;
+  border: 1px solid blue;
+  border-radius: 5px;
+}
+
+div.yellowcard {
+  height: 13px;
+  width: 7px;
+  background: yellow;
+  display: inline-block;
+}
+
+.red {
+  color: red;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.green {
+  color: green;
+}
