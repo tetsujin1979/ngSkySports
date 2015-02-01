@@ -1,7 +1,7 @@
 <div ng-init="skySports.getDates()">
-	<div class="dates container">
-		<div style="width: 1540px">
-			<div class="date shadowed" ng-repeat="date in skySports.dates" ng-click="skySports.setDate(date)" ng-class="skySports.isSelectedDate(date)">
+	<div class="dates skySportsContainer" style="text-align: center; height: 84px;">
+		<div style="width: 1500px; display: inline-block;">
+			<div class="date shadowed whiteGradientBackground" ng-repeat="date in skySports.dates" ng-click="skySports.setDate(date)" ng-class="skySports.isSelectedDate(date)">
 				<div class="day">{{date.date | date: 'EEE'}}</div>
 				<div class="day">{{date.date | date: 'dd'}}</div>
 				<div class="month">{{date.date | date: 'MMM'}}</div>
@@ -9,78 +9,84 @@
 		</div>
 	</div>
 	<div>
-		<div class="competitions container" ng-hide="skySports.date.competitions === undefined"> 
-			<div class="competition shadowed" ng-repeat="competition in skySports.date.competitions" ng-click="skySports.setFixtures(competition.name.full, competition.rounds[0].fixtures);" ng-class="skySports.isSelectedCompetition(competition.name.full)">
+		<div class="competitions skySportsContainer" ng-hide="skySports.date.competitions === undefined" style="text-align: center;"> 
+			<div class="competition shadowed whiteGradientBackground" ng-repeat="competition in skySports.date.competitions" ng-click="skySports.setFixtures(competition.name.full, competition.rounds[0].fixtures);" ng-class="skySports.isSelectedCompetition(competition.name.full)">
 				{{competition.name.full}}
 			</div>
 		</div>
-		<div class="fixtures container" ng-hide="skySports.fixtures.length === 0">
-			<div class="fixture shadowed" ng-repeat="fixture in skySports.fixtures" ng-class="skySports.isSelectedFixture(fixture.item.id)">
-				<span class="team homeTeam">
-					<div style="padding-right: 5px;">{{fixture.item.teams.home.name.full}}</div>
-				</span>
-				<span class="scoreline" ng-switch="fixture.item.status">
-      				<span ng-switch-when="0">
-      					<span>{{fixture.item.start.timestamp | date: 'HH:mm'}}</span>
-      				</span>
-      				<span ng-switch-default>
-      					<span style="cursor: pointer;" ng-click="skySports.setFixture(fixture.item.id)">{{fixture.item.teams.home.score}}-{{fixture.item.teams.away.score}}</span>
-      				</span>
-			  	</span>
-				<span class="team awayTeam">
-					<div style="padding-left: 5px;">{{fixture.item.teams.away.name.full}}</div>
-				</span>
-			</div>
-		</div>
-		<div class="game" ng-hide="skySports.teams === ''">
-			<div class="lineups">
-				<div id="homeTeam" class="lineup">
-					Starting XI
-					<div class="startingXI">
-						<div ng-repeat="startingPlayer in skySports.teams.teams.home.players track by startingPlayer.id">
-							<span class="squadNumber">{{startingPlayer.shirt}}</span>
-							<span class="playerName">{{startingPlayer.name.surname}}</span>
-							<span ng-show="startingPlayer.captain === true">(C)</span>
-							<span ng-repeat="event in skySports.events[startingPlayer.id]">								
-								<i ng-class="skySports.eventClass(event.type)"></i>
-								{{event.time | matchTime}}
+		<div class="fixtures skySportsContainer" ng-hide="skySports.fixtures.length === 0">
+			<accordion>
+				<accordion-group ng-repeat="fixture in skySports.fixtures" class="fixture shadowed" ng-class="skySports.isSelectedFixture(fixture.item.id)" ng-click="skySports.setFixture(fixture.item.id)">
+					<accordion-heading>
+						<div>
+							<span class="team homeTeam whiteGradientBackground">
+								<div style="padding-right: 5px;">{{fixture.item.teams.home.name.full}}</div>
+							</span>
+							<span class="scoreline" ng-switch="fixture.item.status">
+			      				<span ng-switch-when="0">
+			      					<span>{{fixture.item.start.timestamp | date: 'HH:mm'}}</span>
+			      				</span>
+			      				<span ng-switch-default>
+			      					{{fixture.item.teams.home.score}}-{{fixture.item.teams.away.score}}
+			      				</span>
+						  	</span>
+							<span class="team awayTeam whiteGradientBackground">
+								<div style="padding-left: 5px;">{{fixture.item.teams.away.name.full}}</div>
 							</span>
 						</div>
-					</div>
-					Substitutes
-					<div class="substitutes">
-						<div ng-repeat="substitute in skySports.teams.teams.home.subs track by substitute.id">
-							<span class="squadNumber">{{substitute.shirt}}</span><span class="playerName">{{substitute.name.surname}}</span>
-							<span ng-repeat="event in events[substitute.id]">
-								<i ng-class="skySports.eventClass(event.type)"></i>
-								{{event.time | matchTime}}
-							</span>
+					</accordion-heading>
+					<div class="game" ng-hide="skySports.teams === ''">
+						<div class="lineups">
+							<div id="homeTeam" class="lineup">
+								Starting XI
+								<div class="startingXI">
+									<div ng-repeat="startingPlayer in skySports.teams.teams.home.players track by startingPlayer.id">
+										<span class="squadNumber">{{startingPlayer.shirt}}</span>
+										<span class="playerName">{{startingPlayer.name.surname}}</span>
+										<span ng-show="startingPlayer.captain === true">(C)</span>
+										<span ng-repeat="event in skySports.events[startingPlayer.id]">								
+											<i ng-class="skySports.eventClass(event.type)"></i>
+											{{event.time | matchTime}}
+										</span>
+									</div>
+								</div>
+								Substitutes
+								<div class="substitutes">
+									<div ng-repeat="substitute in skySports.teams.teams.home.subs track by substitute.id">
+										<span class="squadNumber">{{substitute.shirt}}</span><span class="playerName">{{substitute.name.surname}}</span>
+										<span ng-repeat="event in skySports.events[substitute.id]">
+											<i ng-class="skySports.eventClass(event.type)"></i>
+											{{event.time | matchTime}}
+										</span>
+									</div>
+								</div>
+							</div>
+							<div id="awayTeam" class="lineup">
+								Starting XI
+								<div class="startingXI">
+									<div ng-repeat="startingPlayer in skySports.teams.teams.away.players track by startingPlayer.id">
+										<span class="squadNumber">{{startingPlayer.shirt}}</span><span class="playerName">{{startingPlayer.name.surname}}</span><span ng-show="startingPlayer.captain === true">(C)</span>
+										<span ng-repeat="event in skySports.events[startingPlayer.id]">
+											<i ng-class="skySports.eventClass(event.type)"></i>
+											{{event.time | matchTime}}
+										</span>
+									</div>
+								</div>
+								Substitutes
+								<div class="substitutes">
+									<div ng-repeat="substitute in skySports.teams.teams.away.subs track by substitute.id">
+										<span class="squadNumber">{{substitute.shirt}}</span><span class="playerName">{{substitute.name.surname}}</span>
+										<span ng-repeat="event in skySports.events[substitute.id]">
+											<i ng-class="skySports.eventClass(event.type)"></i>
+											{{event.time | matchTime}}
+										</span>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div id="awayTeam" class="lineup">
-					Starting XI
-					<div class="startingXI">
-						<div ng-repeat="startingPlayer in skySports.teams.teams.away.players track by startingPlayer.id">
-							<span class="squadNumber">{{startingPlayer.shirt}}</span><span class="playerName">{{startingPlayer.name.surname}}</span><span ng-show="startingPlayer.captain === true">(C)</span>
-							<span ng-repeat="event in skySports.events[startingPlayer.id]">
-								<i ng-class="skySports.eventClass(event.type)"></i>
-								{{event.time | matchTime}}
-							</span>
-						</div>
-					</div>
-					Substitutes
-					<div class="substitutes">
-						<div ng-repeat="substitute in skySports.teams.teams.away.subs track by substitute.id">
-							<span class="squadNumber">{{substitute.shirt}}</span><span class="playerName">{{substitute.name.surname}}</span>
-							<span ng-repeat="event in events[substitute.id]">
-								<i ng-class="skySports.eventClass(event.type)"></i>
-								{{event.time | matchTime}}
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
+				</accordion-group>
+			</accordion>
 		</div>
 	</div>
 </div>

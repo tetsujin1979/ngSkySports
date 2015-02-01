@@ -8,7 +8,7 @@ div.competition {
 
 }
 
-div.container {
+div.skySportsContainer {
 
   background: #1e5799; /* Old browsers */
   background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
@@ -21,6 +21,12 @@ div.container {
 
 }
 .shadowed {
+  -moz-box-shadow: 0 0 5px rgba(255,255,255,1.0);
+  -webkit-box-shadow: 0 0 5px rgba(255,255,255,1.0);
+  box-shadow: 0 0 5px rgba(255,255,255,1.0);
+}
+
+.whiteGradientBackground {
   background: #ffffff; /* Old browsers */
   background: -moz-linear-gradient(top,  #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(50%,#f1f1f1), color-stop(51%,#e1e1e1), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
@@ -30,9 +36,6 @@ div.container {
   background: linear-gradient(to bottom,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
   font-weight: bold;
-  -moz-box-shadow: 0 0 5px rgba(255,255,255,1.0);
-  -webkit-box-shadow: 0 0 5px rgba(255,255,255,1.0);
-  box-shadow: 0 0 5px rgba(255,255,255,1.0);
 }
 
 div.date {
@@ -97,6 +100,7 @@ div.fixture {
   margin: 10px;
   width: 90%;
   display: inline-block;
+  border: 0px;
 }
 
 div.dates {
@@ -109,6 +113,8 @@ div.dates {
   overflow-x: auto;
   overflow-y: hidden;
   background-color: white;
+  width: 100%;
+  height: ;
 }
 
 div.fixtures {
@@ -143,7 +149,7 @@ div.game {
   vertical-align: top; 
   border: 1px solid #ccc; 
   border-radius: 5px; 
-  width: 33%
+  width: 100%
 }
 
 div.lineup {
@@ -198,4 +204,8 @@ div.yellowcard {
 
 .green {
   color: green;
+}
+
+div.panel-heading {
+  padding: 0px;
 }
