@@ -9,7 +9,7 @@ config(['$routeProvider', function($routeProvider) {
 	$routeProvider.
 	when('/', {
 		templateUrl: 'skysports/skysports.html',
-		controller: 'SkySportsCtrl'
+		controller: 'SkySportsCtrl as skySports'
 	}).
 	otherwise({redirectTo: '/'});
 }]);

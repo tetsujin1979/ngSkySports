@@ -1,27 +1,27 @@
-myApp.controller('SkySportsCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
+myApp.controller('SkySportsCtrl', function($http, $filter) {
 
     'use strict';
 
-    $scope.dates = [];
-    $scope.fixtures = [];
+    var thisController = this;
+    thisController.dates = [];
+    thisController.fixtures = [];
+    thisController.fixture = '';
+    thisController.date = '';
+    thisController.competition = '';
+    thisController.teams = '';
+    thisController.events = '';
 
-    $scope.date = '';
-    $scope.events = '';
-    $scope.selectedCompetition = '';
-    $scope.selectedFixture = '';
-    $scope.teams = '';
+    thisController.clear = function() {
 
-    $scope.clear = function() {
-
-        $scope.fixtures = [];
-        $scope.teams = '';
-        $scope.events = '';
+        thisController.fixtures = [];
+        thisController.teams = '';
+        thisController.events = '';
 
     };
 
-    $scope.getDates = function() {
+    thisController.getDates = function() {
 
-        $scope.clear();
+        thisController.clear();
         var today = $filter('date')(new Date(), 'yyyy-MM-dd');
         var config = {
 
@@ -31,12 +31,12 @@ myApp.controller('SkySportsCtrl', ['$scope', '$http', '$filter', function($scope
         };
         $http(config).success(function(data) {
 
-            $scope.dates = data.items;
-            $scope.dates.forEach(function(entry, index) {
+            thisController.dates = data.items;
+            thisController.dates.forEach(function(entry, index) {
 
                 if (entry.date === today) {
 
-                    $scope.date = entry;
+                    thisController.date = entry;
 
                 }
                 entry.date = new Date(entry.date);
@@ -46,25 +46,25 @@ myApp.controller('SkySportsCtrl', ['$scope', '$http', '$filter', function($scope
         }).
         error(function(data, status) {
 
-            $scope.data = data || "Request failed";
-            $scope.status = status;
+            thisController.data = data || "Request failed";
+            thisController.status = status;
 
         });
 
     };
 
-    $scope.setDate = function(date) {
+    thisController.setDate = function(date) {
 
-        $scope.selectedCompetition = '';
-        $scope.clear();
-        $scope.date = date;
+        thisController.competition = '';
+        thisController.clear();
+        thisController.date = date;
 
     };
 
-    $scope.setFixtures = function(selectedCompetition, fixtures) {
+    thisController.setFixtures = function(selectedCompetition, fixtures) {
 
-        $scope.selectedCompetition = selectedCompetition;
-        $scope.clear();
+        thisController.competition = selectedCompetition;
+        thisController.clear();
         angular.forEach(fixtures, function(item) {
 
             var config = {
@@ -75,13 +75,13 @@ myApp.controller('SkySportsCtrl', ['$scope', '$http', '$filter', function($scope
             };
             $http(config).success(function(data) {
 
-                $scope.fixtures.push(data);
+                thisController.fixtures.push(data);
 
             }).
             error(function(data, status) {
 
-                $scope.data = data || "Request failed";
-                $scope.status = status;
+                thisController.data = data || "Request failed";
+                thisController.status = status;
 
             });
 
@@ -89,11 +89,23 @@ myApp.controller('SkySportsCtrl', ['$scope', '$http', '$filter', function($scope
 
     };
 
-    $scope.setFixture = function(id) {
+    thisController.isSelectedDate = function(date) {
 
-        $scope.teams = '';
-        $scope.events = '';
-        $scope.selectedFixture = id;
+        return (thisController.date === date) ? 'selected' : '';
+
+    };
+
+    thisController.isSelectedCompetition = function(competitionName) {
+
+        return (thisController.competition === competitionName) ? 'selected' : '';
+
+    };
+
+    thisController.setFixture = function(id) {
+
+        thisController.teams = '';
+        thisController.events = '';
+        thisController.selectedFixtureId = id;
         var teamsConfig = {
 
             method: 'GET',
@@ -108,48 +120,36 @@ myApp.controller('SkySportsCtrl', ['$scope', '$http', '$filter', function($scope
         };
         $http(teamsConfig).success(function(data) {
 
-            $scope.teams = data;
+            thisController.teams = data;
 
         }).
         error(function(data, status) {
 
-            $scope.data = data || "Request failed";
-            $scope.status = status;
+            thisController.data = data || "Request failed";
+            thisController.status = status;
 
         });
         $http(eventsConfig).success(function(data) {
 
-            $scope.events = data.items;
+            thisController.events = data.items;
 
         }).
         error(function(data, status) {
 
-            $scope.data = data || "Request failed";
-            $scope.status = status;
+            thisController.data = data || "Request failed";
+            thisController.status = status;
 
         });
 
     };
 
-    $scope.isSelectedCompetition = function(competitionName) {
+    thisController.isSelectedFixture = function(fixtureId) {
 
-        return ($scope.selectedCompetition === competitionName) ? 'selected' : '';
-
-    };
-
-    $scope.isSelectedDate = function(date) {
-
-        return ($scope.date === date) ? 'selected' : '';
+        return (thisController.selectedFixtureId === fixtureId) ? 'selected' : '';
 
     };
 
-    $scope.isSelectedFixture = function(fixtureId) {
-
-        return ($scope.selectedFixture === fixtureId) ? 'selectedFixture' : '';
-
-    };
-
-    $scope.eventClass = function(eventType) {
+    thisController.eventClass = function(eventType) {
 
         var retVal = '';
         switch (eventType) {
@@ -199,8 +199,7 @@ myApp.controller('SkySportsCtrl', ['$scope', '$http', '$filter', function($scope
 
     };
 
-
-}]);
+});
 
 myApp.filter('matchTime', function() {
 

@@ -8,7 +8,19 @@ div.competition {
 
 }
 
-span.team, div.competition, div.date, div.startingXI, div.substitutes  {
+div.container {
+
+  background: #1e5799; /* Old browsers */
+  background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+
+}
+.shadowed {
   background: #ffffff; /* Old browsers */
   background: -moz-linear-gradient(top,  #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(50%,#f1f1f1), color-stop(51%,#e1e1e1), color-stop(100%,#f6f6f6)); /* Chrome,Safari4+ */
@@ -17,7 +29,10 @@ span.team, div.competition, div.date, div.startingXI, div.substitutes  {
   background: -ms-linear-gradient(top,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* IE10+ */
   background: linear-gradient(to bottom,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
-
+  font-weight: bold;
+  -moz-box-shadow: 0 0 5px rgba(255,255,255,1.0);
+  -webkit-box-shadow: 0 0 5px rgba(255,255,255,1.0);
+  box-shadow: 0 0 5px rgba(255,255,255,1.0);
 }
 
 div.date {
@@ -28,30 +43,26 @@ div.date {
   text-align: center;
   cursor: pointer;
   margin: 5px;
-  -moz-box-shadow: 0 0 5px rgba(255,255,255,1.0);
-  -webkit-box-shadow: 0 0 5px rgba(255,255,255,1.0);
-  box-shadow: 0 0 5px rgba(255,255,255,1.0);
-  font-weight: bold;
+  background-color: white;
+
 }
 
-div.competition.selected, div.date.selected {
-  -moz-box-shadow: 0 0 5px rgba(0,0,255,1.0);
-  -webkit-box-shadow: 0 0 5px rgba(0,0,255,1.0);
-  box-shadow: 0 0 5px rgba(0,0,255,1.0);
-  font-weight: bold;
+.shadowed.selected {
+  -moz-box-shadow: 0 0 15px rgba(255,0,0,1.0);
+  -webkit-box-shadow: 0 0 15px rgba(255,0,0,1.0);
+  box-shadow: 0 0 15px rgba(255,0,0,1.0);
 }
 
-div.competition.selected:hover, div.date.selected:hover {
-  -moz-box-shadow: 0 0 5px rgba(0,0,255,1.0);
-  -webkit-box-shadow: 0 0 5px rgba(0,0,255,1.0);
-  box-shadow: 0 0 5px rgba(0,0,255,1.0);
-  font-weight: bold;
+.shadowed.selected:hover {
+  -moz-box-shadow: 0 0 15px rgba(255,0,0,1.0);
+  -webkit-box-shadow: 0 0 15px rgba(255,0,0,1.0);
+  box-shadow: 0 0 15px rgba(255,0,0,1.0);
 }
-  
-div.competition:hover, div.date:hover {
-  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+
+.shadowed:hover {
+  -moz-box-shadow: 0 0 15px rgba(127,255,0,1.0);
+  -webkit-box-shadow: 0 0 15px rgba(127,255,0,1.0);
+  box-shadow: 0 0 15px rgba(127,255,0,1.0);
     -webkit-transition: all 0.25s linear;
     -o-transition: all 0.25s linear;
     -moz-transition: all 0.25s linear;
@@ -64,17 +75,10 @@ div.competition:hover, div.date:hover {
 span.team {
   display: inline-block;
   width: 44%;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-
 }
 
 span.scoreline {
   width: 10%;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
   display: inline-block;
   text-align: center;
   background: #f85032; /* Old browsers */
@@ -90,8 +94,9 @@ span.scoreline {
 }
 
 div.fixture {
-  padding: 5px;
-  width: 100%;
+  margin: 10px;
+  width: 90%;
+  display: inline-block;
 }
 
 div.dates {
@@ -103,16 +108,18 @@ div.dates {
   border-radius: 5px;
   overflow-x: auto;
   overflow-y: hidden;
+  background-color: white;
 }
 
 div.fixtures {
   display: inline-block; 
   vertical-align: top; 
-  width: 36%; 
+  width: 42%; 
   border: 1px solid #ccc; 
   border-radius: 5px;
   margin-left: 10px;
   margin-right: 10px;
+  text-align: center;
 }
 
 div.competitions {
@@ -123,34 +130,12 @@ div.competitions {
 }
 
 span.homeTeam {
-  border-left: 1px solid #ccc; 
   text-align: right; 
   margin-right: -5px;
 }
 
 span.awayTeam {
-   margin-left: -5px; 
-   border-right: 1px solid #ccc;
-}
-
-div.fixture.selectedFixture > span.team {
-  font-weight: bold;
-  border-top: 2px solid blue;
-  border-bottom: 2px solid blue;
-}
-
-div.fixture.selectedFixture > span.scoreline {
-  font-weight: bold;
-  border-top: 2px solid blue;
-  border-bottom: 2px solid blue;
-}
-
-div.fixture.selectedFixture > span.homeTeam {
-  border-left: 2px solid blue;
-}
-
-div.fixture.selectedFixture > span.awayTeam {
-  border-right: 2px solid blue;
+  text-align: left; 
 }
 
 div.game {
