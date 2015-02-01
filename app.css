@@ -75,13 +75,14 @@ div.date {
 }
 
 
-span.team {
+.team {
   display: inline-block;
   width: 44%;
 }
 
-span.scoreline {
+.scoreline {
   width: 10%;
+  height: 100%;
   display: inline-block;
   text-align: center;
   background: #f85032; /* Old browsers */
@@ -147,7 +148,6 @@ span.awayTeam {
 div.game {
   display: inline-block; 
   vertical-align: top; 
-  border: 1px solid #ccc; 
   border-radius: 5px; 
   width: 100%
 }
@@ -159,13 +159,11 @@ div.lineup {
 }
 
 div.startingXI {
-  border: 2px solid blue;
   border-radius: 5px;
   color: black;
 }
 
 div.substitutes {
-  border: 2px solid blue;
   border-radius: 5px;
   color: black;
 }
@@ -178,12 +176,10 @@ span.squadNumber {
 }
 
 div.lineups {
-  background: blue;
   color: white;
   font-weight: bold;
   font-size: smaller;
   padding: 5px;
-  border: 1px solid blue;
   border-radius: 5px;
 }
 
@@ -208,4 +204,8 @@ div.yellowcard {
 
 div.panel-heading {
   padding: 0px;
+}
+
+div.panel-body {
+  padding: 5px;
 }

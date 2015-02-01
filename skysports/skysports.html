@@ -19,27 +19,27 @@
 				<accordion-group ng-repeat="fixture in skySports.fixtures" class="fixture shadowed" ng-class="skySports.isSelectedFixture(fixture.item.id)" ng-click="skySports.setFixture(fixture.item.id)">
 					<accordion-heading>
 						<div>
-							<span class="team homeTeam whiteGradientBackground">
+							<div class="team homeTeam whiteGradientBackground">
 								<div style="padding-right: 5px;">{{fixture.item.teams.home.name.full}}</div>
-							</span>
-							<span class="scoreline" ng-switch="fixture.item.status">
-			      				<span ng-switch-when="0">
-			      					<span>{{fixture.item.start.timestamp | date: 'HH:mm'}}</span>
-			      				</span>
-			      				<span ng-switch-default>
+							</div>
+							<div class="scoreline" ng-switch="fixture.item.status">
+			      				<div ng-switch-when="0">
+			      					<div>{{fixture.item.start.timestamp | date: 'HH:mm'}}</div>
+			      				</div>
+			      				<div ng-switch-default>
 			      					{{fixture.item.teams.home.score}}-{{fixture.item.teams.away.score}}
-			      				</span>
-						  	</span>
-							<span class="team awayTeam whiteGradientBackground">
+			      				</div>
+						  	</div>
+							<div class="team awayTeam whiteGradientBackground">
 								<div style="padding-left: 5px;">{{fixture.item.teams.away.name.full}}</div>
-							</span>
+							</div>
 						</div>
 					</accordion-heading>
 					<div class="game" ng-hide="skySports.teams === ''">
-						<div class="lineups">
+						<div class="lineups skySportsContainer">
 							<div id="homeTeam" class="lineup">
 								Starting XI
-								<div class="startingXI">
+								<div class="startingXI whiteGradientBackground">
 									<div ng-repeat="startingPlayer in skySports.teams.teams.home.players track by startingPlayer.id">
 										<span class="squadNumber">{{startingPlayer.shirt}}</span>
 										<span class="playerName">{{startingPlayer.name.surname}}</span>
@@ -51,7 +51,7 @@
 									</div>
 								</div>
 								Substitutes
-								<div class="substitutes">
+								<div class="substitutes whiteGradientBackground">
 									<div ng-repeat="substitute in skySports.teams.teams.home.subs track by substitute.id">
 										<span class="squadNumber">{{substitute.shirt}}</span><span class="playerName">{{substitute.name.surname}}</span>
 										<span ng-repeat="event in skySports.events[substitute.id]">
@@ -63,7 +63,7 @@
 							</div>
 							<div id="awayTeam" class="lineup">
 								Starting XI
-								<div class="startingXI">
+								<div class="startingXI whiteGradientBackground">
 									<div ng-repeat="startingPlayer in skySports.teams.teams.away.players track by startingPlayer.id">
 										<span class="squadNumber">{{startingPlayer.shirt}}</span><span class="playerName">{{startingPlayer.name.surname}}</span><span ng-show="startingPlayer.captain === true">(C)</span>
 										<span ng-repeat="event in skySports.events[startingPlayer.id]">
@@ -73,7 +73,7 @@
 									</div>
 								</div>
 								Substitutes
-								<div class="substitutes">
+								<div class="substitutes whiteGradientBackground">
 									<div ng-repeat="substitute in skySports.teams.teams.away.subs track by substitute.id">
 										<span class="squadNumber">{{substitute.shirt}}</span><span class="playerName">{{substitute.name.surname}}</span>
 										<span ng-repeat="event in skySports.events[substitute.id]">
