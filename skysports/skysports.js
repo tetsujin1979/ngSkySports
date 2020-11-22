@@ -26,7 +26,7 @@ myApp.controller('SkySportsCtrl', function($http, $filter) {
         var config = {
 
             method: 'GET',
-            url: 'http://d.365dm.com/api/score-centre/v1/football/schedule'
+            url: 'https://d.365dm.com/api/score-centre/v1/football/schedule'
 
         };
         $http(config).success(function(data) {
@@ -70,7 +70,7 @@ myApp.controller('SkySportsCtrl', function($http, $filter) {
             var config = {
 
                 method: 'GET',
-                url: 'http://d.365dm.com/api/score-centre/v1/football/fixture/' + item
+                url: 'https://d.365dm.com/api/score-centre/v1/football/fixture/' + item
 
             };
             $http(config).success(function(data) {
@@ -109,13 +109,13 @@ myApp.controller('SkySportsCtrl', function($http, $filter) {
         var teamsConfig = {
 
             method: 'GET',
-            url: 'http://d.365dm.com/api/score-centre/v1/football/fixture/teams/' + id
+            url: 'https://d.365dm.com/api/score-centre/v1/football/fixture/teams/' + id
 
         };
         var eventsConfig = {
 
             method: 'GET',
-            url: 'http://d.365dm.com/api/score-centre/v1/football/fixture/teams/events/' + id
+            url: 'https://d.365dm.com/api/score-centre/v1/football/fixture/teams/events/' + id
 
         };
         $http(teamsConfig).success(function(data) {
