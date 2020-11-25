@@ -10,7 +10,7 @@
 	</div>
 	<div>
 		<div class="competitions skySportsContainer" ng-hide="skySports.date.competitions === undefined" style="text-align: center;"> 
-			<div class="competition shadowed whiteGradientBackground" ng-repeat="competition in skySports.date.competitions" ng-click="skySports.setFixtures(competition.name.full, competition.rounds[0].fixtures);" ng-class="skySports.isSelectedCompetition(competition.name.full)">
+			<div class="competition shadowed whiteGradientBackground" ng-repeat="competition in skySports.date.competitions" ng-click="skySports.setFixtures(competition.name.full, competition.rounds);" ng-class="skySports.isSelectedCompetition(competition.name.full)">
 				{{competition.name.full}}
 			</div>
 		</div>
