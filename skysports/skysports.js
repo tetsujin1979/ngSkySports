@@ -65,7 +65,7 @@ myApp.controller('SkySportsCtrl', function($http, $filter) {
 
         var fixtures = [];
         angular.forEach(rounds, function(item) { 
-            item.forEach(function (i) { fixtures.push(i); });
+            item.fixtures.forEach(function (i) { fixtures.push(i); });
         }, fixtures);
         thisController.competition = selectedCompetition;
         thisController.clear();
